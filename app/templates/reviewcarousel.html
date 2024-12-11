@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}Review carousel{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .container {
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .img-container {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .review {
+            padding: 20px;
+            border: 2px solid #c0bbbb; /* Add border around the review */
+            border-radius: 15px; /* Round corners for card effect */
+            background-color: hsl(195, 40%, 98%); /* White background */
+            max-width: 400px; /* Limit the width */
+            margin: 20px auto; /* Center it */
+            box-shadow: 3px;
+        }
+        .prev-btn,
+        .next-btn {
+            color: var(--clr-primary-7);
+            font-size: 1.25rem;
+            background: transparent;
+            border-color: transparent;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .prev-btn:hover,
+        .next-btn:hover {
+            background-color: #87c1ff;
+        }
+
+        #job {
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        //local review data
+        const reviews = [
+            {
+                id: 1,
+                img: "../static/images/1.jpg",
+                name: "Susan Smith",
+                job: "Web Developer",
+                text: "Crafting seamless user experiences is my passion. I specialize in creating dynamic and responsive web applications. Outside of work, I enjoy hiking and exploring nature."
+            },
+            {
+                id: 2,
+                img: "../static/images/2.jpg",
+                name: "Anna Johnson",
+                job: "UI/UX Designer",
+                text: "Designing intuitive and visually compelling user interfaces is what I do best. I believe great design is all about storytelling. In my free time, I love painting and photography."
+            },
+            {
+                id: 3,
+                img: "../static/images/3.jpg",
+                name: "Liam Turner",
+                job: "Data Scientist",
+                text: "Turning data into actionable insights is my forte. I thrive on solving complex problems and unlocking the hidden potential in numbers. I'm also a coffee enthusiast!"
+            }
+        ];
+
+
+        //select items
+        const img = document.getElementById("person-img");
+        const author = document.getElementById("author");
+        const job = document.getElementById("job");
+        const info = document.getElementById("info");
+
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
+
+        //set starting item
+        let currentItem = 1;
+
+        //load initial item
+        window.addEventListener("DOMContentLoaded", 
+                                showPerson(currentItem)
+                            )
+
+        //show person by item
+        function showPerson(){
+                    const item = reviews[currentItem];
+                    img.src = item.img;
+                    author.textContent = item.name;
+                    job.textContent = item.job;
+                    info.textContent = item.text;
+                }
+
+        // show next person 
+        nextBtn.addEventListener(
+            "click", 
+            function(){
+                currentItem++;
+                if (currentItem > reviews.length-1) {
+                    currentItem = 0;
+                }
+                showPerson(currentItem)
+            }                    
+        )
+        prevBtn.addEventListener(
+            "click", 
+            function(){
+                currentItem--;
+                if (currentItem < 0) {
+                    currentItem = reviews.length-1;
+                }
+                showPerson(currentItem)
+            }                    
+        )
+
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- title -->
+    <div class="title">
+        <h2>Ours Reviews</h2>
+    </div>
+
+    <!-- review -->
+    <article class="review">
+
+        <div class="img-container">
+            <img src="../static/images/1.jpg" id="person-img" alt="" width="80px"> <!--change-->
+        </div>
+        <h4 id="author">Sara</h4>  <!--change-->
+        <p id="job">ux designer</p>  <!--change-->
+        <p id="info">Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Veniam exercitationem nam amet 
+            nisi adipisci quisquam. Modi ullam praesentium 
+            laudantium expedita id a quisquam dolorem dolorum, 
+            hic culpa? Aspernatur, voluptatibus corrupti.</p> <!--change-->
+
+        <!-- button -->
+        <div class="button-container">
+            <button class="prev-btn">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="next-btn">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+    </article>
+</div>
+
+
+<div class="container text-start">
+    <div class="row">
+        <h5>Key concepts covered:</h5>
+    <lu>
+        <li>objects</li>
+        <li>DOMContentLoaded</li>
+        <li>addEventListener()</li>
+        <li>array.length</li>
+        <li>textContent</li>
+    </lu>
+    </div>
+</div>
+
+{% endblock %}
+
