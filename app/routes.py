@@ -9,3 +9,8 @@ def index():
 @main.route("/reviewcarousel")
 def about():
     return render_template("reviewcarousel.html")
+
+
+@main.route("/scrolling")
+def scrolling():
+    return render_template("scrolling.html")

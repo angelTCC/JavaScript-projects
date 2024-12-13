@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}Scrolling{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Add top padding to prevent content from being hidden behind the fixed navbar */
+
+section {
+    padding-top: 0px; /* Space for fixed navbar */
+}
+
+.scrollspy-example {
+    position: relative;
+}
+
+/* Styles for each section */
+#scrollspyHeading1 {
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa; /* Light gray */
+    display: flex;
+}
+
+#scrollspyHeading2 {
+    height: 100vh; /* Full viewport height */
+    background-color: #e9ecef; /* Slightly darker gray */
+    display: flex;
+}
+
+#scrollspyHeading3 {
+    height: 100vh; /* Full viewport height */
+    background-color: #dee2e6; /* Even darker gray */
+    display: flex;
+}
+
+#scrollspyHeading4 {
+    height: 100vh; /* Full viewport height */
+    background-color: #ced4da; /* Dark gray */
+    display: flex;
+}
+
+/* Center titles */
+h4 {
+    margin: 0;
+    font-size: 2rem;
+    color: #212529; /* Text color */
+}
+
+.banner {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<nav id="navbar-example2" class="navbar navbar-light bg-light px-3 navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav nav-pills ms-auto flex-lg-row flex-column" id="navbarNavList">
+            <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading1">First</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading2">Second</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading3">Third</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading4">Fourth</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+      <!-- banner -->
+      <div class="banner">
+        <div class="container">
+          <h1>scroll project</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas eos
+            neque sunt in? Id, necessitatibus quos quisquam distinctio
+            laudantium fugiat?
+          </p>
+          <a href="#tours" class="scroll-link btn btn-white">explore tours</a>
+        </div>
+      </div>
+
+<div class="container mt-4">
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+        <section id="scrollspyHeading1">
+            <h4>First Heading</h4>
+        </section>
+        <section id="scrollspyHeading2">
+            <h4>Second Heading</h4>
+        </section>
+        <section id="scrollspyHeading3">
+            <h4>Third Heading</h4>
+        </section>
+        <section id="scrollspyHeading4">
+            <h4>Fourth Heading</h4>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Handle active state on navbar click
+const navLinks = document.querySelectorAll('.nav-link');
+const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        // Remove 'active' from all links
+        navLinks.forEach(item => item.classList.remove('active'));
+        // Add 'active' to the clicked link
+        this.classList.add('active');
+
+        // Scroll to the section with an offset for the fixed navbar
+        const targetId = this.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+        const elementPosition = targetElement.offsetTop;
+        window.scrollTo({
+            top: elementPosition - navbarHeight, // Offset for navbar height
+            behavior: 'smooth' // Smooth scrolling
+        });
+    });
+});
+
+// Initialize ScrollSpy and adjust scroll position for active state
+const scrollspy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbar-example2',
+    offset: navbarHeight // Adjust offset to match navbar height
+});
+</script>
+{% endblock %}

@@ -13,6 +13,10 @@ Each project focuses on different JavaScript concepts and practical use cases. I
 The project ideas are primarily inspired by:
 * [freeCodeCamp - JavaScript Projects for Beginners](https://www.freecodecamp.org/news/javascript-projects-for-beginners/#heading-how-to-create-a-review-carousel)
 * [John Smilga's JavaScript Basic Projects Repository](https://github.com/john-smilga/javascript-basic-projects/tree/master)
+- https://skillcrush.com/blog/projects-you-can-do-with-javascript/#chat
+- https://www.geeksforgeeks.org/top-javascript-projects/
+- https://www.100jsprojects.com/projects
+- https://github.com/bradtraversy/50projects50days
 
 > **"The best way to learn something new is by studying examples, replicating them, and analyzing the steps!"**
 
