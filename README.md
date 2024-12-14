@@ -25,3 +25,7 @@ The project ideas are primarily inspired by:
 ### Reviews corousel
 
 ![reviwes carousel](./app/static/images/reviewcarousel.png)
+
+### Scrolling
+
+![reviwes carousel](./app/static/images/scrolling_sections.png)
