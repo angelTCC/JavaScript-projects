@@ -23,9 +23,24 @@ The project ideas are primarily inspired by:
 ## Projects
 
 ### Reviews corousel
-
-![reviwes carousel](./app/static/images/reviewcarousel.png)
+<div style="display: flex; align-items: center;">
+    <img src="./app/static/images/reviewcarousel.png" alt="Image description" style="margin-right: 10px; width: 500px;">
+    <span>This is the text besidhjgiiiiiiiiiiiiiiiiiiiiiijjjjjjjjjjjjjjjjjjjkkkkkkkkiiuigggggggggggggggg the image.</span>
+</div>
 
 ### Scrolling
 
 ![reviwes carousel](./app/static/images/scrolling_sections.png)
+
+
+
+
+
+
+
+
+
+
+
+
+

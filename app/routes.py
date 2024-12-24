@@ -14,3 +14,8 @@ def about():
 @main.route("/scrolling")
 def scrolling():
     return render_template("scrolling.html")
+
+
+@main.route("/userfilter")
+def UserFilter():
+    return render_template("UserFilter.html")
