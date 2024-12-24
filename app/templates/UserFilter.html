@@ -24,12 +24,15 @@ User Filter
 
 {% block content %}
 <div class="container">
+
+    <!--header-->
     <header class="header">
         <h4 class="title">User filter</h4>
         <small class="subtitle">search by name and/or location</small>
     </header>
     <input type="text" id="filter" placeholder="Search">
 
+    <!--list of users-->
     <ul id="result" class="user-list">
         <li>loading ... </li>
     </ul>
@@ -48,6 +51,7 @@ User Filter
 
     filter.addEventListener('input', (e)=> filterData(e.target.value));
 
+    //get data from api or create your own data
     async function getData() {
         /*
         const results = [
@@ -75,20 +79,21 @@ User Filter
         result.innerHTML = '';
 
         results.forEach(user => {
-            const li = document.createElement('li'); //create item list
-            listItems.push(li); //add this item to  array
+            const li = document.createElement('li');
+            listItems.push(li);
             li.innerHTML = `
             <img src="${user.picture.large}" alt="${user.name.first}">
             <div class="user-info">
                 <h4>${user.name.first} ${user.name.last}</h4>
                 <p>${user.location.city}, ${user.location.country}</p>
             </div>
-            `;//modify the item
-            result.appendChild(li); //add this item to result
+            `;
+            result.appendChild(li);
         } )
         
     }
 
+    //apply filter, use the text inside the box
     function filterData(searchTerm) {
         listItems.forEach(item => {
             if (item.innerText.toLowerCase().includes(searchTerm.toLowerCase())) {

@@ -23,16 +23,12 @@ The project ideas are primarily inspired by:
 ## Projects
 
 ### Reviews corousel
-<div style="display: flex; align-items: center;">
-    <img src="./app/static/images/reviewcarousel.png" alt="Image description" style="margin-right: 10px; width: 500px;">
-    <span>This is the text besidhjgiiiiiiiiiiiiiiiiiiiiiijjjjjjjjjjjjjjjjjjjkkkkkkkkiiuigggggggggggggggg the image.</span>
-</div>
 
-### Scrolling
+This project demonstrates building an interactive review carousel that cycles through user reviews. It teaches key JavaScript concepts like working with objects and arrays to structure data, `DOMContentLoaded` for initializing content on page load, and `addEventListener()` for handling button clicks to navigate between reviews. It also covers array manipulation with boundary checks using `array.length` and updating HTML elements dynamically with `textContent` to display the data. This provides practical insights into combining JavaScript and HTML for dynamic, user-driven interfaces.
 
-![reviwes carousel](./app/static/images/scrolling_sections.png)
+### Fitler
 
-
+This project showcases creating a user filter feature by dynamically fetching and rendering data from an API using JavaScript. It demonstrates DOM manipulation (creating and modifying elements), event handling (filtering user data based on input), styling with CSS (hiding elements with classes and customizing the list), and asynchronous programming with `fetch` for API integration. These concepts illustrate how to build interactive and responsive web applications.
 
 
 
