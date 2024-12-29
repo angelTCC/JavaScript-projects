@@ -19,3 +19,7 @@ def scrolling():
 @main.route("/userfilter")
 def UserFilter():
     return render_template("UserFilter.html")
+
+@main.route("/tabsection")
+def TabSection():
+    return render_template("TabSection.html")
