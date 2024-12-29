@@ -9,6 +9,14 @@ This repository showcases various practice projects using JavaScript, part of my
 
 Each project focuses on different JavaScript concepts and practical use cases. I document my learnings and ideas in **Notion**, where I take detailed notes and track my progress. All will be implemented using Flask.
 
+### Requirements
+
+- Python 3.10
+- Flask
+- Postgresql
+- Bootstrap
+- JavaScript
+
 ### Project Sources
 The project ideas are primarily inspired by:
 * [freeCodeCamp - JavaScript Projects for Beginners](https://www.freecodecamp.org/news/javascript-projects-for-beginners/#heading-how-to-create-a-review-carousel)
@@ -32,12 +40,15 @@ This project showcases creating a user filter feature by dynamically fetching an
 
 ### Tab section
 
+This project features a tab navigation system where users can switch between different content sections and images. In JavaScript, an event listener is added to each tab link (`.nav-link`) using `addEventListener("click", (e) => { ... })`. When a tab is clicked, the function prevents the default link behavior with `e.preventDefault()`. It then uses `forEach()` to loop through all tab links, content sections (`.content`), and images (`.image`), removing the `active` and `live` classes with `classList.remove()`, hiding all content and images. The `classList.add()` method is then used to add the `active` class to the clicked tab and the `live` class to the corresponding content and image, ensuring only the selected tab’s content is displayed.
 
 ### To-Do List App
 
 Concepts: Arrays, local storage, CRUD operations, event handling.
 Description: A basic to-do app where users can add, remove, and edit tasks. You’ll learn how to store data locally in the browser, making the app persistent across page reloads.
 Why useful: Building this app gives you experience with data management and forms, which are essential for any task management or productivity app.
+
+### Postgrade in Flask
 
 
 

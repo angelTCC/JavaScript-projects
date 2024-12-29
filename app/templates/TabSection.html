@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Tab sections
+{% endblock %}
+
 {% block extra_css %}
 <style>
     .content {
@@ -8,6 +12,29 @@
     .content.live {
       display: block; /* Show only content with the "live" class */
     }
+    .image {
+        display: none;
+    }
+    .image.live{
+        display: block;
+    }
+    .tabs-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ccc; /* Add border to define the box */
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%; /* Set a specific width, can also use px (e.g., 600px) */
+    max-width: 900px; /* Optional: max width for responsiveness */
+    height: 300px; /* Set a specific height */
+    max-height: 600px; /* Optional: max height for responsiveness */
+    overflow: auto; /* Allows scrolling if content overflows the box */
+}
+
+.tabs {
+    margin-bottom: 20px; /* Space between tabs and content */
+}
+
 </style>
 {% endblock %}
 
@@ -16,17 +43,27 @@
         <div class="row">
             <h3>Tab sections</h3>
         </div>
-        <div class="row">
+        <div class="row tabs-container">
             <!--images-->
-            <div class="col-sm-6">
-                <img src="" alt="image"/>
+            <div class="col-sm-6 image live">
+                <img src="../static/images/aurelio1.jpeg" alt="image" style="width: 100%; height: auto;"/>
             </div>
-            <!--tabs-->
+
+            <div class="col-sm-6 image">
+                <img src="../static/images/aurelio2.jpeg" alt="image" style="width: 100%; height: auto;"/>
+            </div>
+
+            <div class="col-sm-6 image">
+                <img src="../static/images/aurelio3.jpg" alt="image" style="width: 100%; height: auto;"/>
+            </div>
+            
+            <!--tabs column-->
             <div class="col-sm-6">
+                <!--tab title-->
                 <div class="row tabs">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Tab 1</a>
+                            <a class="nav-link active" href="#">Tab 1</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tab 2</a>
@@ -36,6 +73,7 @@
                         </li>
                     </ul>
                 </div>
+                <!--contents-->
                 <div class="row content live" id="tab1">
                     <h4>Tab content 1</h4>
                     <p>content1</p>
@@ -57,17 +95,24 @@
 <script>
     // Select all nav-link elements
     const navLinks = document.querySelectorAll(".nav-link");
+    const contents = document.querySelectorAll(".content")
+    const images = document.querySelectorAll(".image")
 
     // Add a click event listener to each nav-link
-    navLinks.forEach((link) => {
+    navLinks.forEach((link, index, array) => {
+
         link.addEventListener("click", (e) => {
             e.preventDefault(); // Prevent default behavior of the link
 
             // Remove 'active' class from all nav-links
             navLinks.forEach((item) => item.classList.remove("active"));
+            contents.forEach((content) => content.classList.remove("live"))
+            images.forEach((image)=> image.classList.remove("live"))
 
             // Add 'active' class to the clicked link
             link.classList.add("active");
+            contents[index].classList.add("live")
+            images[index].classList.add("live")
         });
     });
 </script>
